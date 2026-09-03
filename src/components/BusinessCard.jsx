@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import {
   Phone, Mail, Globe, MapPin, Linkedin, Instagram, Youtube,
   Calendar, QrCode, Download, Share2, MessageSquare,
-  Check, ArrowLeft, Building
+  Check, Building
 } from 'lucide-react';
 import { downloadVCard } from '../services/vcard';
 import { copyText } from '../services/clipboard';
 import { initialsAvatar } from '../services/avatar';
 
-export default function BusinessCard({ member, onBack, onOpenQR, cardUrl }) {
+export default function BusinessCard({ member, onOpenQR, cardUrl }) {
   const [copied, setCopied] = useState(false);
 
   if (!member) return null;
@@ -25,11 +25,6 @@ export default function BusinessCard({ member, onBack, onOpenQR, cardUrl }) {
   return (
     <div className="card-container">
       <div className="card-topbar">
-        <button className="btn-secondary" onClick={onBack}>
-          <ArrowLeft size={15} />
-          <span>All Team Members</span>
-        </button>
-
         <button className="btn-secondary" onClick={handleCopyLink}>
           {copied ? <Check size={15} /> : <Share2 size={15} />}
           <span>{copied ? 'Link Copied!' : 'Share Card'}</span>

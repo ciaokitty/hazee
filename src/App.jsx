@@ -66,7 +66,8 @@ export default function App() {
         }
       }
 
-      setSelectedMember(prev => prev ?? teamMembers[0] ?? null);
+      setSelectedMember(null);
+      setCurrentView('directory');
     };
 
     applyRoute();
@@ -80,13 +81,6 @@ export default function App() {
     setSelectedMember(member);
     setCurrentView('card');
     window.location.hash = `#/card/${member.slug}`;
-  };
-
-  const showDirectory = () => {
-    setSelectedMember(null);
-    setCurrentView('directory');
-    window.history.replaceState(null, '', window.location.pathname);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const getCardUrl = (slug) => `${baseUrl}#/card/${slug || selectedMember?.slug || ''}`;
@@ -105,7 +99,6 @@ export default function App() {
           <BusinessCard
             member={selectedMember}
             cardUrl={getCardUrl(selectedMember.slug)}
-            onBack={showDirectory}
             onOpenQR={(m) => setQrModalMember(m || selectedMember)}
           />
         ) : (

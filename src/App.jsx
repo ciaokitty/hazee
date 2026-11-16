@@ -3,6 +3,7 @@ import Header from './components/Header';
 import BusinessCard from './components/BusinessCard';
 import TeamDirectory from './components/TeamDirectory';
 import QRCodeModal from './components/QRCodeModal';
+import ContactModal from './components/ContactModal';
 
 import { loadTeamMembers } from './services/teamService';
 
@@ -12,6 +13,7 @@ export default function App() {
   const [currentView, setCurrentView] = useState('directory');
   const [selectedMember, setSelectedMember] = useState(null);
   const [qrModalMember, setQrModalMember] = useState(null);
+  const [contactMember, setContactMember] = useState(null);
   const [teamMembers, setTeamMembers] = useState(null);
 
   const [theme, setTheme] = useState(() => {
@@ -100,6 +102,7 @@ export default function App() {
             member={selectedMember}
             cardUrl={getCardUrl(selectedMember.slug)}
             onOpenQR={(m) => setQrModalMember(m || selectedMember)}
+            onOpenContact={(m) => setContactMember(m || selectedMember)}
           />
         ) : (
           <TeamDirectory
@@ -116,6 +119,12 @@ export default function App() {
         onClose={() => setQrModalMember(null)}
         member={qrModalMember}
         cardUrl={getCardUrl(qrModalMember?.slug)}
+      />
+
+      <ContactModal
+        isOpen={Boolean(contactMember)}
+        onClose={() => setContactMember(null)}
+        member={contactMember}
       />
     </div>
   );

@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import {
   Phone, Mail, Globe, MapPin, Linkedin, Instagram, Youtube,
   Calendar, QrCode, Download, Share2, MessageSquare,
-  Check, Building
+  Check, Building, Send
 } from 'lucide-react';
 import { downloadVCard } from '../services/vcard';
 import { copyText } from '../services/clipboard';
 import { initialsAvatar } from '../services/avatar';
 
-export default function BusinessCard({ member, onOpenQR, cardUrl }) {
+export default function BusinessCard({ member, onOpenQR, onOpenContact, cardUrl }) {
   const [copied, setCopied] = useState(false);
 
   if (!member) return null;
@@ -71,6 +71,13 @@ export default function BusinessCard({ member, onOpenQR, cardUrl }) {
               <QrCode size={18} />
               <span>QR Code</span>
             </button>
+
+            {onOpenContact && (
+              <button className="action-btn" onClick={() => onOpenContact(member)}>
+                <Send size={18} />
+                <span>Connect</span>
+              </button>
+            )}
           </div>
 
           {member.bio && (

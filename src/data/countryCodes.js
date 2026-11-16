@@ -1,0 +1,22 @@
+// Minimal country list for the contact form. Shared with the Netlify function for validation.
+export const COUNTRY_CODES = [
+  { code: 'IN', name: 'India', dial_code: '+91' },
+  { code: 'US', name: 'United States', dial_code: '+1' },
+  { code: 'CA', name: 'Canada', dial_code: '+1' },
+  { code: 'GB', name: 'United Kingdom', dial_code: '+44' },
+  { code: 'AU', name: 'Australia', dial_code: '+61' },
+  { code: 'AE', name: 'United Arab Emirates', dial_code: '+971' },
+  { code: 'SA', name: 'Saudi Arabia', dial_code: '+966' },
+  { code: 'SG', name: 'Singapore', dial_code: '+65' },
+  { code: 'MY', name: 'Malaysia', dial_code: '+60' },
+  { code: 'LK', name: 'Sri Lanka', dial_code: '+94' },
+  { code: 'NP', name: 'Nepal', dial_code: '+977' },
+  { code: 'BD', name: 'Bangladesh', dial_code: '+880' },
+  { code: 'PK', name: 'Pakistan', dial_code: '+92' },
+  { code: 'DE', name: 'Germany', dial_code: '+49' },
+  { code: 'FR', name: 'France', dial_code: '+33' },
+  { code: 'NL', name: 'Netherlands', dial_code: '+31' },
+  { code: 'ZA', name: 'South Africa', dial_code: '+27' },
+  { code: 'KE', name: 'Kenya', dial_code: '+254' },
+  { code: 'NG', name: 'Nigeria', dial_code: '+234' },
+];
